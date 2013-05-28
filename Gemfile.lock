@@ -1,0 +1,14 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    fastercsv (1.5.5)
+    ruby-ole (1.2.11.6)
+    spreadsheet (0.8.5)
+      ruby-ole (>= 1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  fastercsv
+  spreadsheet
