@@ -15,17 +15,13 @@ class ExcelMerge
 
       headers = csv.shift
 
-      example_row = worksheet.last_row
-
       csv.each_with_index do |csv_row, row_index|
-        worksheet.insert_row(row_index + TEMPLATE_OFFSET, example_row)
 
         csv_row.each_with_index do |csv_cell, col_index|
           next if csv_cell.nil?
           worksheet[row_index + TEMPLATE_OFFSET, col_index] = csv_cell
         end
       end
-
 
       template
     end
