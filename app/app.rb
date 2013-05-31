@@ -1,5 +1,4 @@
 require 'sinatra'
-require 'pry-byebug'
 require File.expand_path(File.dirname(__FILE__) +'/../lib/excel_merge')
 require 'tempfile'
 
@@ -10,11 +9,10 @@ post '/' do
 
 
   Tempfile.open('manifest.xls') do |temp_manifest|
-    manifest.write(temp_manifest.path)
-
+    manifest.write(temp_manifest)
     temp_manifest.open
     response.headers['content_type'] = "application/vnd.ms-excel"
-    send_file(temp_manifest.path)
+    send_file(temp_manifest)
   end
 end
 
