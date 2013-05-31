@@ -1,1 +1,1 @@
-rvm use 2.0@excel_merger --create
+rvm use 1.9.3@excel_merger --create
