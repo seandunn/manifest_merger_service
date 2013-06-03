@@ -1,0 +1,18 @@
+#!/bin/bash -l
+
+SERVER_PORT=8101
+CURRENT_DIR=/psg/webapp/s2_dev/excel_merge_service/current
+PID_FILE="$CURRENT_DIR/tmp/pids/thin_${SERVER_PORT}.pid"
+
+function start() {
+  cd $CURRENT_DIR
+  bundle exec "$CURRENT_DIR/app/app.rb" -p $SERVER_PORT
+  echo $! > $PID_FILE
+}
+
+function stop() {
+  [[ -f  $PID_FILE ]] && (kill -9 `cat $PID_FILE` ; rm $PID_FILE)
+}
+
+${1}
+
