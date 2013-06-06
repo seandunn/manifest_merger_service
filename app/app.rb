@@ -8,7 +8,12 @@ post '/merge_excel/' do
   manifest     = ExcelMerge.merge_template_with_csv(xls_template, samples_csv)
 
   manifest.write(manifest.io)
-  response.headers['content_type'] = "application/vnd.ms-excel"
+
+  # Use these headers when running as localhost.  Not needed behind nginx though...
+  # response.headers['content_type'] = "application/vnd.ms-excel"
+  # response.headers['Access-Control-Allow-Origin'] = '*'
+  # response.headers['Access-Control-Allow-Methods'] = 'OPTIONS,GET,HEAD,POST,PUT,DELETE,TRACE,CONNECT'
+
   send_file(manifest.io)
 end
 
