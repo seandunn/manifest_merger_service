@@ -2,8 +2,8 @@
  environment: production
  chdir: /psg/webapp/s2_dev/excel_merge_service/current
  address: 127.0.0.1
- user: root
- group: root
+ user: SET_USER_IN_DEPLOYMENT
+ group: SET_GROUP_IN_DEPLOYMENT
  port: 8101
  pid: /psg/webapp/s2_dev/excel_merge_service/current/tmp/pids/thin.pid
  rackup: /psg/webapp/s2_dev/excel_merge_service/current/config.ru
