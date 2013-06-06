@@ -1,23 +1,23 @@
 #!/bin/bash -l
 
-SERVER_PORT=8101
-CURRENT_DIR=/psg/webapp/s2_dev/excel_merge_service/current
-PID_FILE="$CURRENT_DIR/tmp/pids/thin_${SERVER_PORT}.pid"
+# SERVER_PORT=8101
+# CURRENT_DIR=/psg/webapp/s2_dev/excel_merge_service/current
+# PID_FILE="$CURRENT_DIR/tmp/pids/thin_${SERVER_PORT}.pid"
+# 
+# function start() {
+#   cd $CURRENT_DIR
+#   echo "Starting server on port $SERVER_PORT"
+#   bundle exec ruby "$CURRENT_DIR/app/app.rb" -p $SERVER_PORT &
+#   echo $! > $PID_FILE
+# }
+# 
+# function stop() {
+#   [[ -f  $PID_FILE ]] && (kill -9 `cat $PID_FILE` ; rm $PID_FILE)
+# }
+# 
+# function restart(){
+#   stop; start
+# }
 
-function start() {
-  cd $CURRENT_DIR
-  echo "Starting server on port $SERVER_PORT"
-  bundle exec ruby "$CURRENT_DIR/app/app.rb" -p $SERVER_PORT &
-  echo $! > $PID_FILE
-}
-
-function stop() {
-  [[ -f  $PID_FILE ]] && (kill -9 `cat $PID_FILE` ; rm $PID_FILE)
-}
-
-function restart(){
-  stop; start
-}
-
-${1}
+thin -s 2 -C config.yml -R config.ru ${1}
 
