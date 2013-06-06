@@ -15,5 +15,9 @@ function stop() {
   [[ -f  $PID_FILE ]] && (kill -9 `cat $PID_FILE` ; rm $PID_FILE)
 }
 
+function restart(){
+  stop; start
+}
+
 ${1}
 
