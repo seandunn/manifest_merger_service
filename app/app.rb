@@ -1,6 +1,5 @@
 require 'sinatra'
 require File.expand_path(File.dirname(__FILE__) +'/../lib/excel_merge')
-require 'tempfile'
 
 post '/merge_excel/' do
   xls_template = params['template'][:tempfile]
