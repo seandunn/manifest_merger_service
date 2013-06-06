@@ -1,7 +1,7 @@
 require 'sinatra'
 require File.expand_path(File.dirname(__FILE__) +'/../lib/excel_merge')
 
-class ExcelMerger
+class ExcelMerger < Sinatra::Base
   post '/merge_excel/' do
     xls_template = params['template'][:tempfile]
     samples_csv  = params['manifest-details'][:tempfile]
