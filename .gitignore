@@ -2,3 +2,5 @@
 .DS_store
 test.xls
 *.curl
+*.log
+tmp/**
